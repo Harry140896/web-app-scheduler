@@ -17,9 +17,8 @@ cur.execute(" CREATE TABLE IF NOT EXISTS "
 "( poll_id TEXT PRIMARY KEY, " 
 "poll_name VARCHAR(255) NOT NULL, " 
 "participant_limit INTEGER NOT NULL, " 
-"start_date DATE NOT NULL," 
-" start_time TIME NOT NULL, " 
-"deadline TIME NOT NULL," 
+"creation_date_time TEXT NOT NULL,"  
+"response_window INTEGER NOT NULL," 
 " password_hash VARCHAR(255) NOT NULL)" 
 "")
 
