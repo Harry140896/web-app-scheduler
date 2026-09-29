@@ -11,17 +11,19 @@ The creator fills in:
 - Poll name (e.g. "Informal Meeting")
 - Creator name
 - Creator password (stored hashed, never as plain text)
-- Participant limit (includes the creator)
-- Candidate dates as a **date range**: a start date and an end date (every day in between is included; at most 5 days)
-- Response window in hours (e.g. 2 or 48)
+- Participant limit (includes the creator; minimum 2)
+- Candidate dates: **up to 5 dates** (1–5), **not necessarily consecutive**, picked in **one calendar**
+- Response window in hours (e.g. 2 or 48), whole hours only
+
+Recorded automatically (not entered by the creator):
+- The **creation date-time**, taken from the server clock (IST).
+- The **deadline** is not entered or stored: it is calculated as creation date-time + response window.
 
 Date validation:
-- Both the start date and the end date are required.
-- The start date is not in the past.
-- The end date is on or after the start date.
-- The range covers at most 5 days.
-- No date in the range falls before the deadline.
-- Open question: is a single-day poll (start date = end date) allowed?
+- At least 1 and at most 5 dates.
+- No duplicate dates.
+- No date in the past.
+- No date falls before the deadline.
 
 Submitting generates a **unique link** for the poll, which the creator shares.
 
@@ -38,7 +40,7 @@ Submitting generates a **unique link** for the poll, which the creator shares.
 - Header at the top centre: **"Scheduling: <poll name>"**
 - A **countdown** to the deadline.
 - Grid in the middle of the page:
-  - Columns: one per day in the creator's date range.
+  - Columns: one per date the creator chose, in date order.
   - Rows: **4 AM – 11 PM IST** (labelled as IST), in one-hour labelled blocks split into half-hour cells.
 - People select the cells when they are free.
 - Updates: everyone's latest selections show when the page is **loaded or reloaded** (no live updates).
@@ -55,7 +57,7 @@ Submitting generates a **unique link** for the poll, which the creator shares.
 
 ## 5. Creator powers (after password login)
 
-- **End the poll early**, or **shorten the deadline**.
+- **End the poll early**, or **shorten the deadline**, by reducing the response window (whole hours only).
 - **Raise the participant limit** at any time. It can never be lowered.
 - **Remove any participant**, voted or not, **before the deadline only**.
   - Removing someone frees their place.

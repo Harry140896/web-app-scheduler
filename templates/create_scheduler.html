@@ -3,6 +3,7 @@
 <html lang = "en">
 <head>
     <title>Create Scheduler</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.css">
 </head>
 
 <body>
@@ -43,8 +44,8 @@
 <br>
 
 <div>
-    <label for="potential_dates">Date Range for the Meeting (consecutive days): </label>
-    <input type = "date" id="potential_dates" name="potential_dates" required>
+    <label for="potential_dates">Potential Dates for the Meeting: </label>
+    <input type = "text" id="potential_dates" name="potential_dates" required>
 </div>
 <br>
 
@@ -61,6 +62,24 @@
 
  </form>
 
+
+<script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.js"> </script>
+<script>
+const english = {
+    days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+  daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+  daysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+  months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  today: 'Today',
+  clear: 'Clear',
+  dateFormat: 'dd/MM/yyyy',
+  timeFormat: 'hh:mm aa',
+  firstDay: 0
+}
+
+new AirDatepicker('#potential_dates', {locale: english, dateFormat: 'dd/MM/yyyy', visible: true,minDate: new Date(), multipleDates: 5, multipleDatesSeparator: ','});
+</script>
 
 </body>
 </html>
