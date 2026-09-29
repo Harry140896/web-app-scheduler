@@ -12,12 +12,16 @@ The creator fills in:
 - Creator name
 - Creator password (stored hashed, never as plain text)
 - Participant limit (includes the creator)
-- Candidate dates (maximum 5)
+- Candidate dates as a **date range**: a start date and an end date (every day in between is included; at most 5 days)
 - Response window in hours (e.g. 2 or 48)
 
 Date validation:
-- No past dates.
-- No dates that fall before the deadline.
+- Both the start date and the end date are required.
+- The start date is not in the past.
+- The end date is on or after the start date.
+- The range covers at most 5 days.
+- No date in the range falls before the deadline.
+- Open question: is a single-day poll (start date = end date) allowed?
 
 Submitting generates a **unique link** for the poll, which the creator shares.
 
@@ -34,7 +38,7 @@ Submitting generates a **unique link** for the poll, which the creator shares.
 - Header at the top centre: **"Scheduling: <poll name>"**
 - A **countdown** to the deadline.
 - Grid in the middle of the page:
-  - Columns: the dates the creator chose.
+  - Columns: one per day in the creator's date range.
   - Rows: **4 AM – 11 PM IST** (labelled as IST), in one-hour labelled blocks split into half-hour cells.
 - People select the cells when they are free.
 - Updates: everyone's latest selections show when the page is **loaded or reloaded** (no live updates).

@@ -14,6 +14,7 @@ def create_scheduler():
         return render_template('create_scheduler.html')
     elif request.method == 'POST':
         scheduler_name = request.form['scheduler_name']
+        print(f"Scheduler '{scheduler_name}' created successfully!")
         return f"Scheduler '{scheduler_name}' created successfully!"
 
 
