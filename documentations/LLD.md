@@ -4,6 +4,19 @@ Companion to HLD.md. Work in progress.
 
 ---
 
+## 0. Build strategy: walking skeleton (decided 30 Sep 2026)
+
+- **Version 1 (skeleton):** the thinnest end-to-end app: create poll → login → grid → save → see counts. Details in `MILESTONES.md`.
+- **Version 2 (refinements):** everything else, one at a time, on a running app.
+- **Rule:** new ideas go to the Version 2 list in `MILESTONES.md`, not into the current step.
+
+**Skeleton simplifications (temporary):**
+- No friendly server-side validation; bad input may raise an error page. DB constraints (NOT NULL, UNIQUE, foreign keys) remain the safety net.
+- Login: no creator password check, no participant limit, no deadline check.
+- Poll page: grid cells are **checkboxes in a plain form** (no JavaScript); no countdown, no result tiers, no creator panels.
+
+**Deferred to Version 2:** validation classes (`scripts/validation.py`, one class per form + shared helpers, errors shown next to fields), creator password check, creator powers, participant limit, deadline enforcement + countdown, result tiers / "Poll ended", click-and-drag grid, styling, tests, deployment.
+
 ## 1. Environment & hosting
 
 - **Project structure:**
@@ -89,9 +102,9 @@ Column types below are as declared in `scripts/db_creation.py`. SQLite accepts `
 ---
 
 ## Still to plan
-- URL names for each page and action
-- How the grid sends selections to the backend
-- Result calculation
+- URL names for the login and poll pages (create poll is `/create_scheduler`)
+- How the grid sends selections: Version 1 uses checkboxes in a plain form; click-and-drag is Version 2
+- Result calculation (Version 2)
 
 ## Notes to look up
 - `sqlite3` module: connections, cursors, `commit` / `rollback` (transactions)
